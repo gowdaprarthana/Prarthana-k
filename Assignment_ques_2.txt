@@ -1,0 +1,30 @@
+2.Find valid date (MMDDYYYY) from string. 
+
+For example :-
+
+ Hdjsh asd2324234jghjsd hjsdg sdhk  12212021 idf32432 32423 d34234jh dfh 
+
+Answer:
+
+using System;
+using System.Text.RegularExpressions;
+
+class Program{
+    static void Main(){
+        Console.WriteLine("Enter a string:");
+        string input = Console.ReadLine();
+       string pattern = @"\b(0[1-9]|1[0-2])(0[1-9]|[12][0-9]|3[01])(19|20)\d{2}\b";
+        if (Regex.IsMatch(input, pattern))
+        {
+            foreach (Match match in Regex.Matches(input, pattern))
+            {
+                Console.WriteLine("Valid date found: " + match.Value);
+            }
+        }
+        else
+        {
+            Console.WriteLine("No valid date found in the input string.");
+        }
+    }
+}
+
